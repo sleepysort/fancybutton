@@ -1,16 +1,17 @@
 const button =  document.querySelector('#fancy');
 button.addEventListener('click', () => {
   console.log('clicked');
-  confetti(button, {width: '60px', height: '60px', images: ['finger_john', 'baby_kristen', 'obama']});
+  confetti(button, {width: '180px', height: '180px', images: ['finger_john.png', 'baby_kristen.png', 'obama.png', 'john_cat.jpeg']})
 });
 
 /************
  * Forked from https://github.com/daniel-lundin/dom-confetti
  ************/
 function createElements(root, elementCount, images, width, height) {
+  const img = images[Math.floor(Math.random() * images.length)];
   return Array.from({ length: elementCount }).map((_, index) => {
     const element = document.createElement("img");
-    element.src = 'static/' + images[index % images.length] + '.png';
+    element.src = 'static/' + img;
     element.style.width = width;
     element.style.height = height;
     element.style.position = "absolute";
@@ -96,7 +97,7 @@ function animate(root, fettis, dragFriction, decay, duration, stagger) {
 const defaults = {
   angle: 90,
   spread: 145,
-  startVelocity: 45,
+  startVelocity: 65,
   elementCount: 50,
   width: "10px",
   height: "10px",
